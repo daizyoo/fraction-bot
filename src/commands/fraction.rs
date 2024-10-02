@@ -11,10 +11,10 @@ async fn fraction(ctx: &Context, msg: &Message) -> CommandResult {
     let mut vec = message.split(' ').collect::<Vec<&str>>();
     vec.remove(0);
 
-    let fraction = String::new();
+    let fraction = vec.join(" ");
 
     msg.channel_id
-        .say(&ctx.http, fraction_calculation(&fraction).to_string())
+        .say(&ctx.http, fraction_calculation(&fraction))
         .await?;
 
     Ok(())

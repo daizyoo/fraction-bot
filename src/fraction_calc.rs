@@ -267,9 +267,14 @@ impl Fraction {
     }
 }
 
-impl ToString for Fraction {
-    fn to_string(&self) -> String {
-        format!("{}{}/{}", self.sign, self.numerator, self.denominator)
+impl Into<String> for Fraction {
+    fn into(self) -> String {
+        format!(
+            "{}{}/{}",
+            if self.sign { "" } else { "-" },
+            self.numerator,
+            self.denominator
+        )
     }
 }
 
